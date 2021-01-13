@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Ibarra+Real+Nova:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ibarra Real Nova', serif;
+  background-color: #f9f2f2;
+  font-size: 1.2em;
+}
+
+@mixin setDisplayWidth($width) {
+  width: $width;
+  margin: 0 auto;
+}
+
+@mixin customShadow($size) {
+  box-shadow: -$size $size 0 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+header {
+  display: grid;
+  padding: 20px 0;
+  @include setDisplayWidth(95%);
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Archive Narrow';
+
+    div {
+      font-size: 1em;
+      color: #000;
+      background: #fff;
+      padding: 5px 8px;
+
+      @include customShadow(3px);
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+
+      li {
+        padding: 20px 12px;
+      }
+    }
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+section.articles {
+  display: grid;
+  grid-gap: 2em;
+  width: 95%;
+  margin: 0 auto;
+
+  article {
+    @include customShadow(3px) img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// Phone Portrait and Landscape
+@media screen and (min-width: 320px) and (max-width: 480px) {
+}
+
+// Phone Portrait
+@media screen and (min-width: 320px) {
+}
+
+// Phone Landscape
+@media screen and (min-width: 480px) {
+}
+
+// Tablet Portrait and Landscape
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+// Tablet Portrait
+@media screen and (min-width: 768px) {
+  header {
+    -ms-grid-column: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
+    .logo {
+      justify-self: start;
+    }
+  }
+
+  section.articles {
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Tablet Landscape
+@media screen and (min-width: 1024px) {
+  section.articles {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Desktop
+@media screen and (min-width: 1224px) {
+  section.articles {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Large Desktop
+@media screen and (min-width: 1824px) {
+  section.articles {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
